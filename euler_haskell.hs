@@ -39,3 +39,11 @@ problem6 = squareSum - sumSquares
 
 -- https://projecteuler.net/problem=7
 problem7 = [n | n <- [2, 3..150000], isPrime n] !! 10000
+
+-- https://projecteuler.net/problem=9
+rightTriangle = [ (a,b,c) | c <- [1..10000], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2]
+problem9 = head [ (a, b, c) | (a, b, c) <- rightTriangle, a + b + c == 1000]
+
+-- https://projecteuler.net/problem=10
+primes = [x | x <- [2..], isPrime x == True]
+problem10 a = sum (takeWhile (<a) primes)

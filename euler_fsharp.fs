@@ -48,3 +48,19 @@ let primes =
     |> Seq.map (fun i -> int(i))
 let problem7 (n:int) = 
     Seq.item (n-1) primes
+
+// https://projecteuler.net/problem=9
+let pathTrip = 
+    seq {
+    for c = 1 to 1000 do
+        for b = 1 to c do
+            for a = 1 to b do 
+                if ((a*a) + (b*b) = (c*c)) then yield (a, b, c)
+    }
+let problem9 =  
+    let (a,b,c) = Seq.head (Seq.filter (fun (x, y, z) -> (x + y + z = 1000)) pathTrip)
+    a*b*c
+
+// https://projecteuler.net/problem=10
+let problem10 =
+    Seq.sum (Seq.takeWhile (fun x -> x < 2000000) primes)
